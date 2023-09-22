@@ -43,7 +43,7 @@ public class RequestValidationWithDecorator extends AbstractGatewayFilterFactory
             valueMap.put("businessName", "HBO Ltda.");
 
             RequestDecorator decorator = new RequestDecorator(exchange.getRequest(), valueMap);
-            return chain.filter(exchange.mutate().request(decorator).build()).then();
+            return chain.filter(exchange.mutate().request(decorator).build());
         };
     }
 
