@@ -16,7 +16,7 @@ spring:
             - Path=/clients/create
             - Method=POST
           filters:
-            - name: RequestValidationWithDecorator
+            - name: RequestValidation2
 #            - name: CircuitBreaker
 #              args:
 #                name: defaultCustomizer
