@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: get-all-clients
+          uri: http://localhost:8081/clients
+          predicates:
+            - Path=/clients
+            - Method=GET
+        - id: create-client
+          uri: http://localhost:8081/clients/create
+          predicates:
+            - Path=/clients/create
+            - Method=POST
+          filters:
+            - name: RequestValidationWithDecorator2
+#            - name: CircuitBreaker
+#              args:
+#                name: defaultCustomizer
+#                fallbackUri: forward:/fallback
+#        - id: fallback
+#          uri: https://fcjventurebuilder.com/404-error-page/
+#          predicates:
+#            - Path=/fallback
+#          filters:
+#            - ResponseFallback
